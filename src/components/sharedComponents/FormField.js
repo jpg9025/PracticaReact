@@ -3,6 +3,7 @@ import classnames from 'classnames';
 
 import './FormField.css';
 
+// This component is a input that allow to include a label 
 function FormField({ className, label, ...props }) {
     return (
         <div className={classnames('formField', {'formField--focused' : false }, className )}>
