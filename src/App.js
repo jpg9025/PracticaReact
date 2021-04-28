@@ -6,10 +6,10 @@ import LoginPage from './components/authentication/LoginPage/LoginPage.js';
 function App() {
   return (
     <div className="App">
+      <LoginPage></LoginPage>
       <AdvertsPage></AdvertsPage>
       <NewAdvertPage></NewAdvertPage>
       <AdvertDetailPage></AdvertDetailPage>
-      <LoginPage></LoginPage>
     </div>
   );
 }
