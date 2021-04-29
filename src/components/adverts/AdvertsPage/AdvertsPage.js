@@ -6,7 +6,7 @@ import './AdvertsPage.css';
 import { getLatestAdverts } from '../../../API/adverts.js';
 import Layout from '../../layout/Layout/Layout.js';
 
-const AdvertsPage = ({ className }) => {
+const AdvertsPage = ({ className, ...props }) => {
     const [adverts, setAdverts ] = React.useState([]);
 
     React.useEffect(() => {
@@ -18,7 +18,7 @@ const AdvertsPage = ({ className }) => {
     };
 
     return <div className={classnames("advertsPage", className )}>
-        <Layout title={process.env.REACT_APP_TITLE}>
+        <Layout title={process.env.REACT_APP_TITLE} {...props}>
             <ul style={{ color: adverts.length > 3 ? 'pink' : 'green' }}>
                 {adverts.map(advert => 
                 <li key={advert.id} onClick={handleClick}>

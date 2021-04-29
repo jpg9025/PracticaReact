@@ -7,7 +7,7 @@ import './Layout.css';
 function Layout({ children, title, ...props }) {
     return (
         <div className="layout">
-            <Header className="layout-header" {...props}></Header>
+            <Header className="layout-header" {...props} ></Header>
             <main className="layout-main">
                 <h2 className="layout-title">{title}</h2>
                 <section className="layout-content">{children}</section>

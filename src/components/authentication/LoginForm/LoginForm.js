@@ -4,7 +4,7 @@ import Button from '../../sharedComponents/Button.js';
 import FormField from '../../sharedComponents/FormField.js';
 
 function LoginForm({ onSubmit }) {
-    const [credentials, setCredentials ] = React.useState({mail: '', password: ''});
+    const [credentials, setCredentials ] = React.useState({email: '', password: ''});
     
     /*const handleMailChange = event => {
         const newCredentials = {...credentials, mail: event.target.value };
