@@ -4,8 +4,9 @@ import classnames from 'classnames';
 import { ReactComponent as Icon } from '../../../assets/raccoon.svg';
 import './Header.css';
 import Button from '../../sharedComponents/Button.js';
+import AuthButton from '../../sharedComponents/AuthButton.js';
 
-const Header = ({ className, isLogged, ...props }) => {
+const Header = ({ className, isLogged, onLogout, ...props }) => {
     return (
         <header className={classnames('header', className)} {...props}>
             <div className="header-logo">
@@ -19,18 +20,10 @@ const Header = ({ className, isLogged, ...props }) => {
                 > 
                     New Advert
                 </Button>
-                { isLogged ? (
-                    <Button 
-                    className="header-button">
-                        Log out
-                    </Button>
-                ) : (
-                    <Button
-                    to="/login"
-                    className="header-button">
-                        Log in
-                    </Button>
-                )}
+                <AuthButton 
+                className="header-button"
+                isLogged={isLogged}
+                onLogout={onLogout} />
             </nav>
         </header>
     );

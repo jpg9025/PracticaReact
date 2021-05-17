@@ -1,9 +1,10 @@
 import React from 'react';
 
+import PTypes from 'prop-types';
 import Button from '../../sharedComponents/Button.js';
 import FormField from '../../sharedComponents/FormField.js';
 
-function LoginForm({ onSubmit }) {
+function LoginForm({ onSubmit, isLoading }) {
     const [credentials, setCredentials ] = React.useState({email: '', password: ''});
     
     /*const handleMailChange = event => {
@@ -18,8 +19,13 @@ function LoginForm({ onSubmit }) {
     };*/
 
     const handleChange = event => {
-        const newCredentials = { ...credentials, [event.target.name]: event.target.value };
-        setCredentials(newCredentials);
+        //const newCredentials = { ...credentials, [event.target.name]: event.target.value };
+        //setCredentials(newCredentials);
+        // New State depends on previous state => Is better use a function that receive an state and create a new state depending on the previous
+        // New State does not depend on previous state => set state with a value directly
+        setCredentials(oldCredentials => ({
+            ...oldCredentials, [event.target.name]: event.target.value
+        }));
     };
 
     const handleSubmit = event => {
@@ -27,7 +33,7 @@ function LoginForm({ onSubmit }) {
         event.preventDefault();
     }
 
-    const { password, email } = credentials;
+    const { password, email } = credentials; // destructuring credentials object
 
     return (
         <form className='loginForm' onSubmit={handleSubmit}>
@@ -36,6 +42,7 @@ function LoginForm({ onSubmit }) {
             name="email"
             label="email"
             className="loginForm-field"
+            //value={credentials.email}
             value={email}
             //onChange={handleMailChange}
             onChange={handleChange}
@@ -45,6 +52,7 @@ function LoginForm({ onSubmit }) {
             name="password"
             label="password"
             className="loginForm-field"
+            //value={credentials.password}
             value={password}
             //onChange={handlePasswordChange}
             onChange={handleChange}
@@ -53,12 +61,22 @@ function LoginForm({ onSubmit }) {
             type="submit" 
             className="loginForm-submit" 
             variant="primary"
-            disabled={!email || !password}
+            disabled={isLoading ||(!email || !password)}
             >
                 Log in
             </Button>
         </form>
     );
 };
+
+LoginForm.propTypes = {
+    onSubmit: PTypes.func.isRequired,
+    isLoading: PTypes.bool,
+}
+
+// Default props is required for props non required. To ensure that we receive a correct type of var
+LoginForm.defaultProps = {
+    isLoading: false,
+}
 
 export default LoginForm;
