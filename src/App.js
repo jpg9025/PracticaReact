@@ -9,7 +9,7 @@ import LoginPage from './components/authentication/LoginPage/LoginPage.js';
 function App({ isInitiallyLogged }) {
 
   // State definition. Two states, logged or notLogged => Boolean
-  const [isLogged, setIsLogged] = React.useState(false);
+  const [isLogged, setIsLogged] = React.useState(isInitiallyLogged);
 
   // Handler of the event onLogin
   const handleLogin = () => {

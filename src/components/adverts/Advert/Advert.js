@@ -24,7 +24,7 @@ const Advert = ({ name, sale, price, tags, photo, user }) => {
 };
 
 export const advertType = {
-    user: PTypes.shape({ username: PTypes.string.isRequrired }).isRequired,
+    //user: PTypes.shape({ username: PTypes.string.isRequrired }).isRequired,
     name: PTypes.string.isRequired,
     sale: PTypes.bool.isRequired,
     price: PTypes.number.isRequired,
