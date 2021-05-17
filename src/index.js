@@ -2,18 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-console.log(process.env);
+import storage from './utilities/storage.js';
+import { configureClient } from './API/client.js';
+
+const accessToken = storage.get('auth');
+configureClient({ accessToken });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <App isInitiallyLogged={!!accessToken} />, //double negation is a way to receive the boolean of the value
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
