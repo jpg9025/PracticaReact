@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+
 import './index.css';
 import App from './App';
 
@@ -10,6 +12,8 @@ const accessToken = storage.get('auth');
 configureClient({ accessToken });
 
 ReactDOM.render(
-  <App isInitiallyLogged={!!accessToken} />, //double negation is a way to receive the boolean of the value
+  <BrowserRouter>
+    <App isInitiallyLogged={!!accessToken} />
+  </BrowserRouter>,
   document.getElementById('root')
 );
