@@ -1,14 +1,18 @@
 import React from 'react';
 import PTypes from 'prop-types';
 
+import './Advert.css';
+
 const Advert = ({ name, sale, price, tags, photo, user }) => {
     const handleClick = () => {
         alert('Detail link pending...');
     };
 
+    console.log(Advert.sale);
+
     return (
-        <article className="advert wrapper" onClick={handleClick}>
-            <div className="advert header">
+        <article className="advert-wrapper" onClick={handleClick}>
+            <div className="advert-header">
                 <span className="adver-name">{name}</span>
                 <span className="adver-onsale">{sale}</span>
             </div>
@@ -16,7 +20,7 @@ const Advert = ({ name, sale, price, tags, photo, user }) => {
                 <span className="advert-photo">{photo}</span>
             </div>
             <div className="advert-footer">
-                <span className="adver-price">{price}</span>
+                <span className="adver-price">{price}€</span>
                 <span className="advert.tags">{tags}</span>
             </div>
         </article>

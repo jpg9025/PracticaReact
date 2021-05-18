@@ -1,11 +1,29 @@
 .layout {
-    background-color: lightblue;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
 }
 
-.layout-header {
-    background-color: lightpink;
+.layout-main {
+    margin-top: 0;
+    height: 100%;
+    background-color: #BDBDBD;
 }
 
-.layout-footer {
-    background-color: lightgreen;
+.layout-title {
+    text-align: center;
+    margin: 1rem;
+    padding: 0.5rem;
+    font-size: 3rem;
+    color: #212121;
+}
+
+.layout-footer{
+    padding: 0.5rem;
+    background-color: #F0F4C3;
+    text-align: center;
 }

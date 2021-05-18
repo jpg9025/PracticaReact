@@ -3,6 +3,8 @@ import LoginForm from '../LoginForm/LoginForm.js';
 
 import { login } from '../../../API/authentication.js';
 
+import './LoginPage.css';
+
 function LoginPage({ onLogin }) {
     // Create a state to handle the error - if we want to show an error on screen its require a state
     const [error, setError] = React.useState({message: 'Insert valid credentials'});
@@ -34,10 +36,10 @@ function LoginPage({ onLogin }) {
     };
 
     return (
-        <div className="loginPage">
-            <h1 className="loginPage-title">Log in to {process.env.REACT_APP_TITLE}</h1>
+        <div className="LoginPage">
+            <h1 className="LoginPage-title">Log in to {process.env.REACT_APP_TITLE}</h1>
             <LoginForm onSubmit={handleSubmit} isLoading={isLoading}/>
-            {error && <div className="Login-error">{error.message}</div>}
+            {error && <div className="Login-Error">{error.message}</div>}
             {isLoading && <div className="Loading">...Loading</div>}
         </div>
     );

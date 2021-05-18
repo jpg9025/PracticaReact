@@ -4,6 +4,8 @@ import PTypes from 'prop-types';
 import Button from '../../sharedComponents/Button.js';
 import FormField from '../../sharedComponents/FormField.js';
 
+import './LoginForm.css';
+
 function LoginForm({ onSubmit, isLoading }) {
     const [credentials, setCredentials ] = React.useState({email: '', password: ''});
     

@@ -1,0 +1,11 @@
+.advert-wrapper {
+    margin: 1rem;
+    padding: 1rem;
+    background-color: #AFB42B;
+    border: 2px ridge #757575;
+}
+
+.advert-wrapper:hover {
+    cursor: pointer;
+    background-color: #CDDC39;
+}

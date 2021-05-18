@@ -22,6 +22,7 @@ const Header = ({ className, isLogged, onLogout, ...props }) => {
                 </Button>
                 <AuthButton 
                 className="header-button"
+                link={"/login"}
                 isLogged={isLogged}
                 onLogout={onLogout} />
             </nav>
