@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-const accentColor = 'rgb(12, 150, 220)'
-
 const Button = styled.button`
 margin: 0.5rem;
     padding: 0.5rem 0.7rem;

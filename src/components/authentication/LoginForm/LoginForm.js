@@ -42,7 +42,7 @@ function LoginForm({ onSubmit, isLoading }) {
             <FormField
             type="email"
             name="email"
-            label="email"
+            label="Email:"
             className="loginForm-field"
             //value={credentials.email}
             value={email}
@@ -52,7 +52,7 @@ function LoginForm({ onSubmit, isLoading }) {
             <FormField
             type="password"
             name="password"
-            label="password"
+            label="Password:"
             className="loginForm-field"
             //value={credentials.password}
             value={password}

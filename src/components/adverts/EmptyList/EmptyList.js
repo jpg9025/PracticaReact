@@ -1,11 +1,16 @@
 import React from 'react';
 import Button from '../../sharedComponents/Button.js';
+import { Link } from 'react-router-dom';
+
+import './EmptyList.css';
 
 const EmptyList = () => {
     return (
-        <div>
+        <div className="EmptyList">
             <p>Any advert published, be the first doing it</p>
             <Button
+                as={Link}
+                to ="/advert/new"
                 variant="primary"
             >
                 New Advert

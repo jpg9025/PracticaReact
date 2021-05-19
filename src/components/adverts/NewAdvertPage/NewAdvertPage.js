@@ -6,7 +6,7 @@ const NewAdvertPage = ({className, ...props}) => {
     return (
         <div className={classnames("advertsPage", className )}>
             <Layout title={process.env.REACT_APP_TITLE} {...props} >
-                <div>New Advert Page</div>
+                <div>New Advert Page MANOLAAAAAA</div>
             </Layout>
         </div>
     );

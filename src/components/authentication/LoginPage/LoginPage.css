@@ -3,15 +3,26 @@
     flex-direction: column;
     align-items: center;
     padding: 5rem;
+    background-color: #F0F4C3;
+    min-height: 78.5vh;
 }
 
 .LoginPage-title {
     color: #212121;
+    font-size: 52px;
 }
 
 .Login-Error {
     background-color: rgba(247, 127, 127, 0.5);
     padding: 0.7rem;
     margin: 1rem;
+    margin-top: 2.5rem;
+}
+
+.Loading {
+    background-color: rgba(70, 105, 47, 0.5);
+    padding: 0.7rem;
+    margin: 1rem;
+    margin-top: 2.5rem;
 }
 

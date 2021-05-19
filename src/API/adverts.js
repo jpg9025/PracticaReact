@@ -5,7 +5,7 @@ const advertsBaseUrl = '/api/v1'
 //const authBaseUrl = 'api/auth'
 
 export const getLatestAdverts = () => {
-    const url = `${process.env.REACT_APP_API_BASE_URL}${advertsBaseUrl}/adverts`;
+    const url = `${advertsBaseUrl}/adverts`;
     return client.get(url);
 };
 

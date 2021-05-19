@@ -1,6 +1,7 @@
 import React from 'react';
 import PTypes from 'prop-types';
 import { Redirect, Switch, Route } from 'react-router';
+import PrivateRoute from './components/sharedComponents/PrivateRoute.js';
 
 import AdvertsPage from './components/adverts/AdvertsPage/AdvertsPage.js';
 import NewAdvertPage from './components/adverts/NewAdvertPage/NewAdvertPage.js';
@@ -24,10 +25,18 @@ function App({ isInitiallyLogged }) {
   return (
     <div className="App">
       <Switch>
-        <Route path="/advert/:id" render={() => <AdvertDetailPage isLogged={isLogged} onLogout={handleLogout} />} />
-        <Route  path="/advert/new" render={() => <NewAdvertPage isLogged={isLogged} onLogout={handleLogout}/>} />
-        <Route  path="/login" render={() => <LoginPage onLogin={handleLogin} onLogout={handleLogout} />} />
-        <Route  exact path="/" render={() => <AdvertsPage isLogged={isLogged} onLogout={handleLogout} />} />
+        <PrivateRoute path="/advert/:id" isLogged={isLogged} component={AdvertDetailPage}>
+          <AdvertDetailPage isLogged={isLogged} onLogout={handleLogout} />
+        </PrivateRoute> 
+        <PrivateRoute exact path="/advert/new" isLogged={isLogged} component={NewAdvertPage}>
+          <NewAdvertPage isLogged={isLogged} onLogout={handleLogout} />
+        </PrivateRoute>
+        <Route  path="/login">
+          {({history}) => <LoginPage onLogin={handleLogin} history={history}/>}
+          {/*  using history and redirectinf to home is better, more programatically
+          ({history}) => !isLogged ? <LoginPage onLogin={handleLogin} history={history}/> : <Redirect to='/'/>*/}
+        </Route>
+        <PrivateRoute  exact path="/" isLogged={isLogged} render={() => <AdvertsPage isLogged={isLogged} onLogout={handleLogout} />} />
         <Route  path="/404">
           <div
             style={{

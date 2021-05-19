@@ -3,18 +3,22 @@ import classnames from 'classnames';
 
 import { ReactComponent as Icon } from '../../../assets/raccoon.svg';
 import './Header.css';
+import { Link } from 'react-router-dom';
 import Button from '../../sharedComponents/Button.js';
 import AuthButton from '../../sharedComponents/AuthButton.js';
 
 const Header = ({ className, isLogged, onLogout, ...props }) => {
     return (
         <header className={classnames('header', className)} {...props}>
-            <div className="header-logo">
-                <Icon width="40" height="40"/>
-            </div>
+            <Link to='/'>
+                <div className="header-logo">
+                    <Icon width="40" height="40"/>
+                </div>
+            </Link>
             <nav className="header-nav">
                 <Button
-                to ="/advert"
+                as={Link}
+                to ="/advert/new"
                 variant="primary"
                 className="header-button"
                 > 
