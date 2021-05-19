@@ -1,14 +1,12 @@
 import React from 'react';
 import classnames from 'classnames';
 
-import './AdvertsPage.css';
-
 import { getLatestAdverts } from '../../../API/adverts.js';
 import Layout from '../../layout/Layout/Layout.js';
 import AdvertsList from '../AdvertsList/AdvertsList.js';
 import EmptyList from '../EmptyList/EmptyList.js';
 
-const AdvertsPage = ({ className, ...props }) => {
+const AdvertsPage = ({ className, history, ...props }) => {
     const [ adverts, setAdverts ] = React.useState([]);
 
     React.useEffect(() => {
@@ -18,7 +16,7 @@ const AdvertsPage = ({ className, ...props }) => {
     return <div className={classnames("advertsPage", className )}>
         <Layout title={process.env.REACT_APP_TITLE} {...props}>
             <div className={className}>
-                {adverts.length ? <AdvertsList adverts={adverts}/> : <EmptyList/>}
+                {adverts.length ? <AdvertsList history={history} adverts={adverts}/> : <EmptyList/>}
             </div>
         </Layout>
     </div>;
