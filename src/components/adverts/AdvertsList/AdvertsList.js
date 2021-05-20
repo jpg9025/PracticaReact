@@ -5,7 +5,11 @@ import Advert, { advertType } from '../Advert/Advert.js';
 //const renderAdvert = history => advert => <Advert key={advert.id} history={history} {...advert} />;
 
 const AdvertsList = ({ adverts, history }) => {
-    return <ul className="advertsList">{adverts.map(advert => <Advert key={advert.id} history={history} {...advert} />)}</ul>
+    const handleClick = advertId => {
+        history.push(`/advert/${advertId}`);
+    };
+    
+    return <ul className="advertsList">{adverts.map(advert => <Advert key={advert.id} history={history} onClick={() => handleClick(advert.id)} {...advert} />)}</ul>
 };
 
 AdvertsList.propTypes = {

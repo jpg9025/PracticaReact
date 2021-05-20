@@ -25,10 +25,11 @@ function App({ isInitiallyLogged }) {
   return (
     <div className="App">
       <Switch>
-        <PrivateRoute path="/adverts/:id" isLogged={isLogged} component={AdvertDetailPage}>
-          <AdvertDetailPage isLogged={isLogged} onLogout={handleLogout} />
+        <PrivateRoute path="/adverts/:id" isLogged={isLogged} /*component={AdvertDetailPage}*/>
+          {({history, match}) => <AdvertDetailPage isLogged={isLogged} history={history} match={match} onLogout={handleLogout} />}
+          {/*<AdvertDetailPage isLogged={isLogged} onLogout={handleLogout} />*/}
         </PrivateRoute> 
-        <PrivateRoute exact path="/advert/new" isLogged={isLogged} component={NewAdvertPage}>
+        <PrivateRoute exact path="/advert/new" isLogged={isLogged} /*component={NewAdvertPage}*/>
           <NewAdvertPage isLogged={isLogged} onLogout={handleLogout} />
         </PrivateRoute>
         <Route  path="/login">
@@ -50,24 +51,16 @@ function App({ isInitiallyLogged }) {
               404 | Page not found 
             </div>
         </Route >
-        <Route >
+       <Route >
           <Redirect to="/404"/>
         </Route >
       </Switch>
-
-      {/*{isLogged ? (
-      <AdvertsPage isLogged={isLogged} onLogout={handleLogout}/>
-      ) : (
-      <LoginPage onLogin={handleLogin}/>
-      )}
-      <AdvertsPage isLogged={isLogged} onLogout={handleLogout}></AdvertsPage>
-      <NewAdvertPage isLogged={isLogged} onLogout={handleLogout}></NewAdvertPage>
-      <AdvertDetailPage isLogged={isLogged} onLogout={handleLogout}></AdvertDetailPage>*/}
     </div>
   );
 }
 
 App.propTypes = {
-  isInitialltyLogged: PTypes.bool.isRequired,
-}
+  isInitiallyLogged: PTypes.bool.isRequired,
+};
+
 export default App;

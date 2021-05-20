@@ -9,6 +9,11 @@ export const getLatestAdverts = () => {
     return client.get(url);
 };
 
+export const getAdvertDetail = advertId => {
+    const url = `${advertsBaseUrl}/adverts/${advertId}`;
+    return client.get(url);
+};
+
 /*export const getAdvertAuth = () => {
     return client.get(authBaseUrl);
 };*/
