@@ -5,7 +5,7 @@ import { login } from '../../../API/authentication.js';
 
 import './LoginPage.css';
 
-function LoginPage({ onLogin, history }) {
+function LoginPage({ onLogin, history, location }) {
     // Create a state to handle the error - if we want to show an error on screen its require a state
     const [error, setError] = React.useState({message: 'Insert valid credentials'});
 
@@ -16,7 +16,8 @@ function LoginPage({ onLogin, history }) {
     React.useEffect(() => {
         if(isLogged.current) {
             onLogin();
-            history.push('/');
+            const { from } = location.state || { from: { pathname:'/'}};
+            history.replace(from);
         }
     }, [isLogged.current, onLogin]);
 

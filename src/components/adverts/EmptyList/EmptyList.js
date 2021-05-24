@@ -11,7 +11,6 @@ const EmptyList = () => {
             <Button
                 as={Link}
                 to ="/advert/new"
-                variant="primary"
             >
                 New Advert
             </Button>

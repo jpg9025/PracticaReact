@@ -26,14 +26,14 @@ function App({ isInitiallyLogged }) {
     <div className="App">
       <Switch>
         <PrivateRoute path="/adverts/:id" isLogged={isLogged} /*component={AdvertDetailPage}*/>
-          {({history, match}) => <AdvertDetailPage isLogged={isLogged} history={history} match={match} onLogout={handleLogout} />}
+          {({match}) => <AdvertDetailPage isLogged={isLogged} match={match} onLogout={handleLogout} />}
           {/*<AdvertDetailPage isLogged={isLogged} onLogout={handleLogout} />*/}
         </PrivateRoute> 
         <PrivateRoute exact path="/advert/new" isLogged={isLogged} /*component={NewAdvertPage}*/>
           <NewAdvertPage isLogged={isLogged} onLogout={handleLogout} />
         </PrivateRoute>
         <Route  path="/login">
-          {({history}) => <LoginPage onLogin={handleLogin} history={history}/>}
+          {({history, location}) => <LoginPage onLogin={handleLogin} history={history} location={location} /> }
           {/*  using history and redirectinf to home is better, more programatically than using the conditioning
           ({history}) => !isLogged ? <LoginPage onLogin={handleLogin} history={history}/> : <Redirect to='/'/>*/}
         </Route>

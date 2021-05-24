@@ -11,14 +11,14 @@ const Advert = ({ id, name, sale, price, tags, photo, history, /*onClick,*/ ...p
     return (
         <article className="advert-wrapper" onClick={handleClick}>
             <div className="advert-header">
-                <span className="adver-name">{name}</span>
-                <span className="adver-onsale">On sale:{sale ? 'yes' : 'no'}</span>
+                <span className="advert-name">{name}</span>
+                <span className="advert-onsale">On sale: {sale ? 'yes' : 'no'}</span>
             </div>
             <div className="adver-body">
                 <span className="advert-photo">{photo}</span>
             </div>
             <div className="advert-footer">
-                <span className="adver-price">{price}€</span>
+                <span className="advert-price">{price}€</span>
                 <span className="advert-tags">{tags}</span>
             </div>
         </article>

@@ -3,6 +3,9 @@ import storage from '../utilities/storage.js';
 
 export const login = credentials => {
     return client.post('/api/auth/login', credentials).then(({accessToken}) => {
+        if(credentials.remember){
+            storage.remember('auth', accessToken);
+        };
         configureClient({ accessToken });
         storage.set('auth', accessToken);
     });

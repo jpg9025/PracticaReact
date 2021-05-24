@@ -6,11 +6,11 @@
     padding: 1rem;
     background-color: #BDBDBD;
     width: 25vw;
-    height: 35vh;
+    height: 50vh;
     padding: 2rem;
 }
 
-.loginForm-field {
+.loginForm-field, .loginForm-rememenberuser {
     margin: 1rem;
     margin-bottom: 2.5rem;
 }

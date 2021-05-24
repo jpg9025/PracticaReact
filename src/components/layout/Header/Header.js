@@ -19,7 +19,6 @@ const Header = ({ className, isLogged, onLogout, ...props }) => {
                 <Button
                 as={Link}
                 to ="/advert/new"
-                variant="primary"
                 className="header-button"
                 > 
                     New Advert
