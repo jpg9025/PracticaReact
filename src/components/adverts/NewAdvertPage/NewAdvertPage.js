@@ -17,16 +17,8 @@ const NewAdvertPage = ({history, className, onSubmit, ...props}) => {
         } catch (error) {
             setError(true);
             console.log(error.statusCode, error.message);
+            console.log(error);
         };
-        /*try {
-            const advert = await createAdvert(newAdvert).then(({ id }) => {
-                history.push(`/adverts/${id}`);
-                console.log(advert);
-            }
-        );
-        } catch (error) {
-            setError(true);
-        }*/
     };
 
     return (

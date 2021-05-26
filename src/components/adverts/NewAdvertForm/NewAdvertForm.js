@@ -4,8 +4,11 @@ import Button from '../../sharedComponents/Button.js';
 import FileInput from '../../sharedComponents/FileInput.js';
 import TagsSelector from '../../sharedComponents/TagsSelector.js';
 
+//Create a formData to ensure the sending of the picture 
+const formData = new FormData();
 
 const filterValues = {
+    name: ({ value }) => String(value),
     checkbox: ({ checked }) => checked,
     number: ({ value }) => Number(value),
     'select-multiple': ({ selectedOptions }) =>
@@ -14,19 +17,15 @@ const filterValues = {
 };
    
 const defaultValue = ({ value }) => value;
-const initialFormValue = {name:'', price: 0, sale: true, tags: []};
+
+// Create an initialFormValue to give it to useState - first render
+const initialFormValue = {name:'', price: 0, sale: true, tags: [], photo: null};
 
 const NewAdvertForm = ({onSubmit}) => {
-    // Form State
+
     const [formValues, setFormValue] = React.useState(initialFormValue);
 
-    // Tags State
-    const [ tags, setTags ] = React.useState([]);
-
-    const name='traKata';
-    const price=25;
-    const sale=false;
-
+    const { name, price, sale, tags, photo} = formValues;
 
     const updateFormValue = (name, value) => {
         setFormValue(currentFormValue => ({
@@ -38,11 +37,12 @@ const NewAdvertForm = ({onSubmit}) => {
     const handleChange = event => {
         const valueGetter = filterValues[event.target.type] || defaultValue;
         updateFormValue(event.target.name, valueGetter(event.target));
+        console.log(event.target.type);
     };
 
     const handleSubmit = event => {
         event.preventDefault();
-        onSubmit();
+        onSubmit(formValues);
     }
 
     return (
@@ -50,6 +50,7 @@ const NewAdvertForm = ({onSubmit}) => {
             <FormField 
             type="text"
             name="name"
+            label="Item name"
             value={name}
             onChange={handleChange}
             />
@@ -57,6 +58,7 @@ const NewAdvertForm = ({onSubmit}) => {
             <FormField
             type="number"
             name="price"
+            label="Item price"
             value={price}
             onChange={handleChange}
             />

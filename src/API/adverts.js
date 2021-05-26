@@ -1,5 +1,5 @@
 import client from './client';
-
+import { formDataConversor } from '../utilities/formDataconverter.js';
 
 const advertsBaseUrl = '/api/v1'
 //const authBaseUrl = 'api/auth'
@@ -14,11 +14,15 @@ export const getAdvertDetail = advertId => {
     return client.get(url);
 };
 
-export const createAdvert = advert => {
+/*export const createAdvert = advert => {
     const url = `${advertsBaseUrl}/adverts`;
     return client.post(url, advert);
-};
+};*/
 
+export const createAdvert = formDataConversor(advert => {
+    const url = `${advertsBaseUrl}/adverts`;
+    return client.post(url, advert);
+});
 
 export const getTags = () => {
     const url=`${advertsBaseUrl}/adverts/tags`;

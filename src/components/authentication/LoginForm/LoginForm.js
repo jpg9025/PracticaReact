@@ -6,9 +6,11 @@ import FormField from '../../sharedComponents/FormField.js';
 
 import './LoginForm.css';
 
+// Create an initialCredential to give it to useState
+const initialCredentials = { email: '', password: '', remember:true };
 
 function LoginForm({ onSubmit, isLoading }) {
-    const [credentials, setCredentials ] = React.useState({ email: '', password: '', remember:true });
+    const [credentials, setCredentials ] = React.useState(initialCredentials);
     
     /*const handleMailChange = event => {
         const newCredentials = {...credentials, mail: event.target.value };
@@ -41,7 +43,6 @@ function LoginForm({ onSubmit, isLoading }) {
         onSubmit(credentials);
         event.preventDefault();
     };
-
 
     const { password, email, remember } = credentials; // destructuring credentials object
 
