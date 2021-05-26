@@ -1,15 +1,40 @@
 import React from 'react';
-import classnames from 'classnames';
 import Layout from '../../layout/Layout/Layout.js';
+import NewAdvertForm from '../NewAdvertForm/NewAdvertForm.js';
 
-const NewAdvertPage = ({className, ...props}) => {
+import {createAdvert } from '../../../API/adverts.js';
+
+
+const NewAdvertPage = ({history, className, onSubmit, ...props}) => {
+
+    const [error, setError] = React.useState(null);
+
+    const handleSubmit = async (newAdvert) => {
+        try {
+            const advert = await createAdvert(newAdvert);
+            history.push(`/adverts/${advert.id}`);
+            console.log(advert);
+        } catch (error) {
+            setError(true);
+            console.log(error.statusCode, error.message);
+        };
+        /*try {
+            const advert = await createAdvert(newAdvert).then(({ id }) => {
+                history.push(`/adverts/${id}`);
+                console.log(advert);
+            }
+        );
+        } catch (error) {
+            setError(true);
+        }*/
+    };
+
     return (
-        <div className={classnames("advertsPage", className )}>
-            <Layout title={process.env.REACT_APP_TITLE} {...props} >
-                <div>New Advert Page MANOLAAAAAA</div>
-            </Layout>
-        </div>
+        <Layout title="New Advertisment">
+            <NewAdvertForm onSubmit={handleSubmit}></NewAdvertForm>
+        </Layout>
     );
+
 };
 
 export default NewAdvertPage;

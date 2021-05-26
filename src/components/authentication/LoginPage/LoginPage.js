@@ -1,4 +1,5 @@
 import React from 'react';
+import PTypes from 'prop-types';
 import LoginForm from '../LoginForm/LoginForm.js';
 
 import { login } from '../../../API/authentication.js';
@@ -46,5 +47,11 @@ function LoginPage({ onLogin, history, location }) {
         </div>
     );
 }
+
+LoginPage.propTypes = {
+    onLogin: PTypes.func.isRequired,
+    history: PTypes.shape({replace: PTypes.func.isRequired}).isRequired,
+    location: PTypes.object.isRequired
+};
 
 export default LoginPage;

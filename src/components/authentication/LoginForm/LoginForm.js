@@ -32,7 +32,6 @@ function LoginForm({ onSubmit, isLoading }) {
     };
 
     const handleRemember = event => {
-        console.log(event.target.checked);
         const newCredentials = {...credentials, remember: event.target.checked};
         setCredentials(newCredentials);
         ;
@@ -57,6 +56,7 @@ function LoginForm({ onSubmit, isLoading }) {
             value={email}
             //onChange={handleMailChange}
             onChange={handleChange}
+            autofocus
             />
             <FormField
             type="password"
@@ -68,16 +68,18 @@ function LoginForm({ onSubmit, isLoading }) {
             //onChange={handlePasswordChange}
             onChange={handleChange}
             />
-            <label htmlFor="remember">Remember credentials?</label>
-            <input
-            type='checkbox' 
-            className="loginForm-rememenberuser"
-            name="remember"
-            value={remember}
-            checked={remember}
-            onChange={handleRemember}
-            //onChange={handleChange}
-            />
+            <div>
+                <label htmlFor="remember">Remember credentials?</label>
+                <input
+                type='checkbox' 
+                className="loginForm-rememenberuser"
+                name="remember"
+                value={remember}
+                checked={remember}
+                onChange={handleRemember}
+                //onChange={handleChange}
+                />
+            </div>
             <Button 
             type="submit" 
             className="loginForm-submit" 

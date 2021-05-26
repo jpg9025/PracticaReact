@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../sharedComponents/Button.js';
 import AuthButton from '../../sharedComponents/AuthButton.js';
 
-const Header = ({ className, isLogged, onLogout, ...props }) => {
+const Header = ({ className, ...props }) => {
     return (
         <header className={classnames('header', className)} {...props}>
             <Link to='/'>
@@ -25,9 +25,7 @@ const Header = ({ className, isLogged, onLogout, ...props }) => {
                 </Button>
                 <AuthButton 
                 className="header-button"
-                link={"/login"}
-                isLogged={isLogged}
-                onLogout={onLogout} />
+                link={"/login"} />
             </nav>
         </header>
     );

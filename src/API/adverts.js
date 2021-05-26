@@ -19,6 +19,11 @@ export const createAdvert = advert => {
     return client.post(url, advert);
 };
 
+
+export const getTags = () => {
+    const url=`${advertsBaseUrl}/adverts/tags`;
+    return client.get(url);
+}
 /*export const getAdvertAuth = () => {
     return client.get(authBaseUrl);
 };*/
