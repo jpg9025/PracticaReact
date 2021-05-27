@@ -12,8 +12,9 @@ const Advert = ({ id, name, sale, price, tags, photo, history, /*onClick,*/ ...p
     };
 
 
-    const handleDelete = () => {
-        deleteAdvert(`${id}`).then(() => history.push('/'));
+    const handleDelete = async () => {
+       await deleteAdvert(`${id}`);
+       window.location.reload(false);
     };
 
     return (
@@ -32,6 +33,7 @@ const Advert = ({ id, name, sale, price, tags, photo, history, /*onClick,*/ ...p
                 </div>
             </article>
             <Button
+            className="Delete-button"
             onClick={handleDelete}
             >
                 DeleteAdvert

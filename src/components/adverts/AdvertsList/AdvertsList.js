@@ -5,6 +5,13 @@ import Advert, { advertType } from '../Advert/Advert.js';
 //const renderAdvert = history => advert => <Advert key={advert.id} history={history} {...advert} />;
 
 const AdvertsList = ({ adverts, history }) => {
+
+    React.useEffect(() => {
+        history.push('/');
+    }, [adverts.length]);
+
+    console.log(adverts);
+
     const handleClick = advertId => {
         history.push(`/advert/${advertId}`);
     };

@@ -22,3 +22,8 @@
     margin: 0.2rem;
     padding: 0.2rem;
 }
+
+.Delete-button {
+    position: relative;
+    left: 40%;
+}
