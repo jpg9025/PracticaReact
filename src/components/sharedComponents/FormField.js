@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import PTypes from 'prop-types';
 
 // This component is a input that allow to include a label 
 function FormField({ className, autofocus, label, ...props }) {
@@ -28,6 +29,11 @@ function FormField({ className, autofocus, label, ...props }) {
             </label>
     </div>
     );
+}
+
+FormField.PTypes = {
+    label: PTypes.string.isRequired,
+    className: PTypes.string,
 }
 
 export default FormField;

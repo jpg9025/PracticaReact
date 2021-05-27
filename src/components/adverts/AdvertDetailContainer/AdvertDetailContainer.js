@@ -1,5 +1,6 @@
 import React from 'react';
 import PTypes from 'prop-types';
+import { advertType } from '../Advert/Advert.js';
 
 import './AdvertDetailContainer.css';
 
@@ -25,8 +26,9 @@ const AdvertDetailContainer =({ advert }) => {
     );
 };
 
+
 AdvertDetailContainer.propTypes = {
-    advert: PTypes.object.isRequired,
+    adverts: PTypes.arrayOf(PTypes.shape(advertType)),
 };
 
 export default AdvertDetailContainer;

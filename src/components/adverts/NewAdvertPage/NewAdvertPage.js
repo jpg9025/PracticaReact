@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../../layout/Layout/Layout.js';
 import NewAdvertForm from '../NewAdvertForm/NewAdvertForm.js';
+import PTypes from 'prop-types';
 
 import {createAdvert } from '../../../API/adverts.js';
 
@@ -28,6 +29,10 @@ const NewAdvertPage = ({history, className, onSubmit, ...props}) => {
     );
 
 };
+
+NewAdvertPage.PTypes = {
+    handleSubmit: PTypes.func.isRequired,
+}
 
 export default NewAdvertPage;
 

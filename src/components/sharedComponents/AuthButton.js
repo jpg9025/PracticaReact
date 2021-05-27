@@ -14,6 +14,12 @@ const AuthButton = ({className, isLogged, onLogout, link }) => {
     return <Button><Link to ={link} className={className} {...props} /></Button>
 };
 
+const ConnectedAuthButton = (props) => {
+    return <AuthContextConsumer>
+        {(value)=> {return <AuthButton isLogged={value.isLogged} onLogout={value.onLogout} {...props} />}} 
+    </AuthContextConsumer>;
+};
+
 AuthButton.PTypes = {
     className: PTypes.string,
     isLogged: PTypes.bool,
@@ -22,12 +28,6 @@ AuthButton.PTypes = {
 
 AuthButton.defaultProps = {
     isLogged: false,
-};
-
-const ConnectedAuthButton = (props) => {
-    return <AuthContextConsumer>
-        {(value)=> {return <AuthButton isLogged={value.isLogged} onLogout={value.onLogout} {...props} />}} 
-    </AuthContextConsumer>;
 };
 
 export default ConnectedAuthButton;

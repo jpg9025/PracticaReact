@@ -10,8 +10,6 @@ const AdvertsList = ({ adverts, history }) => {
         history.push('/');
     }, [adverts.length]);
 
-    console.log(adverts);
-
     const handleClick = advertId => {
         history.push(`/advert/${advertId}`);
     };

@@ -3,8 +3,10 @@ import FormField from '../../sharedComponents/FormField.js';
 import Button from '../../sharedComponents/Button.js';
 import FileInput from '../../sharedComponents/FileInput.js';
 import TagsSelector from '../../sharedComponents/TagsSelector.js';
+import PTypes from 'prop-types';
 
 import './NewAdvertForm.css';
+import NewAdvertPage from '../NewAdvertPage/NewAdvertPage.js';
 
 const filterValues = {
     name: ({ value }) => String(value),
@@ -96,5 +98,13 @@ const NewAdvertForm = ({onSubmit}) => {
         </form>
     )
 };
+
+NewAdvertForm.PTypes = {
+    onSubmit: PTypes.func.isRequired,
+    name: PTypes.string.isRequired,
+    sale: PTypes.bool.isRequired,
+    price: PTypes.number.isRequired,
+    tags: PTypes.arrayOf(PTypes.string).isRequired
+}
 
 export default NewAdvertForm;

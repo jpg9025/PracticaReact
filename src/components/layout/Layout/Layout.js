@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PTypes from 'prop-types';
 import Header from '../Header/Header.js';
 
 import './Layout.css';
@@ -16,5 +16,14 @@ function Layout({ children, title, ...props }) {
         </div>
     )
 };
+
+Layout.PTypes = {
+    title: PTypes.string,
+    children: PTypes.object.isRequired
+}
+
+Layout.defaultProps = {
+    title: 'ReactPOP'
+}
 
 export default Layout;
