@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../../layout/Layout/Layout.js';
 import AdvertDetailContainer from '../AdvertDetailContainer/AdvertDetailContainer.js';
 import { Redirect } from 'react-router-dom';
+import { getAdvertAuth } from '../../../API/authentication.js';
 
 import './AdvertDetailPage.css';
 
@@ -21,6 +22,11 @@ class AdvertDetailPage extends React.Component {
         getAdvertDetail(this.props.match.params.id)
         .then(advert => this.setState({ advert }))
         .catch(error => {console.log(error.statusCode)});
+
+
+        console.log(this.props);
+        const auth = getAdvertAuth().then();
+        console.log(auth);
     }
 
     render() {

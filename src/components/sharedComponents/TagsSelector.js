@@ -41,4 +41,8 @@ const TagsSelector = ({ value, onChange, ...props }) => {
     );
 };
 
+TagsSelector.propTypes = {
+  option: PTypes.bool
+}
+
 export default TagsSelector;

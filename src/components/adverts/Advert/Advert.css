@@ -3,9 +3,22 @@
     padding: 1rem;
     background-color: #AFB42B;
     border: 2px ridge #757575;
+    width: 85vw;
 }
 
 .advert-wrapper:hover {
     cursor: pointer;
     background-color: #CDDC39;
+}
+
+.advert-header, .advert-body, .advert-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.advert-name, .advert-price, .advert-tags, .adverts-onsale {
+    margin: 0.2rem;
+    padding: 0.2rem;
 }

@@ -1,6 +1,7 @@
 html {
   margin: 0;
   padding: 0;
+  background-color: #BDBDBD;
 }
 
 body {
@@ -20,4 +21,8 @@ code {
 ul {
   margin: 0;
   padding: 0;
+}
+
+.ardvert-list {
+  margin-bottom: 2rem;
 }

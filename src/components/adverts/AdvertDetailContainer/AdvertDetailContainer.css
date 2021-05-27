@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 85vw;
 }
 
 .AdvertDetail-header {
@@ -22,7 +23,7 @@
 .AdvertDetail-name {
     font-family: 'Courier New', Courier, monospace;
 }
-
+ 
 .AdvertDetail-photo {
     align-self: center;
     margin: 2rem;

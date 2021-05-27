@@ -23,7 +23,10 @@
 }
 
 .layout-footer{
+    position: fixed;
+    bottom: 0;
     padding: 0.5rem;
     background-color: #F0F4C3;
     text-align: center;
+    width: 100%;
 }

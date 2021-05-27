@@ -4,8 +4,7 @@ import Button from '../../sharedComponents/Button.js';
 import FileInput from '../../sharedComponents/FileInput.js';
 import TagsSelector from '../../sharedComponents/TagsSelector.js';
 
-//Create a formData to ensure the sending of the picture 
-const formData = new FormData();
+import './NewAdvertForm.css';
 
 const filterValues = {
     name: ({ value }) => String(value),
@@ -63,7 +62,7 @@ const NewAdvertForm = ({onSubmit}) => {
             onChange={handleChange}
             />
 
-            <div>
+            <div className="newAdvert-checkbox">
                 <label htmlFor="sale">Are you seling it?</label>
                 <input 
                 type="checkbox"
@@ -74,21 +73,25 @@ const NewAdvertForm = ({onSubmit}) => {
             </div>
 
             <TagsSelector
+            className="newAdvert-TagsSelector"
             name="tags"
             value={tags}
             onChange={handleChange}/>
 
             <FileInput
+            className="newAdvert-fileInput"
             name="photo"
             onChange={handleChange}
             />
 
-            <Button 
-            type="submit" 
-            className="newAdvert-submit"
-            >
-                Create Advert
-            </Button>
+            <div className="submit-wrapper">
+                <Button 
+                type="submit" 
+                className="newAdvert-submit"
+                >
+                    Create Advert
+                </Button>
+            </div>
 
         </form>
     )
