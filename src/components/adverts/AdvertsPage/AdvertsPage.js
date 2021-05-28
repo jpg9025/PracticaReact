@@ -11,13 +11,18 @@ import FilterAdverts from '../../sharedComponents/FilterAdverts.js';
 const AdvertsPage = ({ className, history, ...props }) => {
     const [ adverts, setAdverts ] = React.useState([]);
 
+    const [filters, setFilters] = React.useState();
+
+
     React.useEffect(() => {
         getLatestAdverts().then(adverts => {setAdverts(adverts)});
     }, []);
 
     return <div className={classnames("advertsPage", className )}>
         <Layout title={process.env.REACT_APP_TITLE} {...props}>
-            <FilterAdverts/>
+            <FilterAdverts 
+            prices={adverts.map(({ price }) => price)}
+            onFilter={setFilters}/>
             <div className={className}>
                 {adverts.length ? <AdvertsList history={history} adverts={adverts}/> : <EmptyList/>}
             </div>
