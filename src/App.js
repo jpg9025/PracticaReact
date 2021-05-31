@@ -75,5 +75,5 @@ function App({ isInitiallyLogged }) {
 App.propTypes = {
   isInitiallyLogged: PTypes.bool.isRequired,
 };
-
+   
 export default App;
