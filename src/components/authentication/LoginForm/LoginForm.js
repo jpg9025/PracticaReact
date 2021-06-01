@@ -75,7 +75,6 @@ function LoginForm({ onSubmit, isLoading }) {
                 type='checkbox' 
                 className="loginForm-rememenberuser"
                 name="remember"
-                value={remember}
                 checked={remember}
                 onChange={handleRemember}
                 //onChange={handleChange}

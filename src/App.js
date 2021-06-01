@@ -31,22 +31,22 @@ function App({ isInitiallyLogged }) {
       <AuthContextProvider value={AuthContext}>
         <Switch>
 
-          <PrivateRoute path="/adverts/:id" isLogged={isLogged} /*component={AdvertDetailPage}*/>
+          <PrivateRoute path="/adverts/:id"  /*isLogged={isLogged} component={AdvertDetailPage}*/>
             {({match}) => <AdvertDetailPage match={match} />}
             {/*<AdvertDetailPage isLogged={isLogged} onLogout={handleLogout} />*/}
           </PrivateRoute> 
 
-          <PrivateRoute exact path="/advert/new" isLogged={isLogged}  /*component={NewAdvertPage}*/>
+          <PrivateRoute exact path="/advert/new" /*isLogged={isLogged} component={NewAdvertPage}*/>
             {({history}) => <NewAdvertPage history={history} />}
           </PrivateRoute>
 
           <Route  path="/login">
-            {({history, location}) => <LoginPage onLogin={handleLogin} history={history} location={location} /> }
+            {({history, location}) => <LoginPage history={history} location={location} onLogin={handleLogin} /> }
             {/*  using history and redirectinf to home is better, more programatically than using the conditioning
             ({history}) => !isLogged ? <LoginPage onLogin={handleLogin} history={history}/> : <Redirect to='/'/>*/}
           </Route>
 
-          <PrivateRoute  exact path="/" isLogged={isLogged}>
+          <PrivateRoute  exact path="/" /*isLogged={isLogged}*/>
             {({history}) => <AdvertsPage history={history} />}
           </PrivateRoute>
 

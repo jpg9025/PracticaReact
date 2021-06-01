@@ -11,6 +11,7 @@ const TagsSelector = ({ value, onChange, ...props }) => {
 
     const handleChange = event => {
         const { name, checked, value: optionValue } = event.target;
+        console.log('trakata')
         onChange({
           target: {
             name,

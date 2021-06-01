@@ -6,7 +6,6 @@ import TagsSelector from '../../sharedComponents/TagsSelector.js';
 import PTypes from 'prop-types';
 
 import './NewAdvertForm.css';
-import NewAdvertPage from '../NewAdvertPage/NewAdvertPage.js';
 
 const filterValues = {
     name: ({ value }) => String(value),
@@ -38,7 +37,6 @@ const NewAdvertForm = ({onSubmit}) => {
     const handleChange = event => {
         const valueGetter = filterValues[event.target.type] || defaultValue;
         updateFormValue(event.target.name, valueGetter(event.target));
-        console.log(event.target.type);
     };
 
     const handleSubmit = event => {
@@ -90,6 +88,7 @@ const NewAdvertForm = ({onSubmit}) => {
                 <Button 
                 type="submit" 
                 className="newAdvert-submit"
+                disabled={!name || !price || !tags}
                 >
                     Create Advert
                 </Button>
