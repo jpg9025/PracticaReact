@@ -13,7 +13,6 @@ const AdvertsPage = ({ className, history, ...props }) => {
 
     const [filters, setFilters] = React.useState();
 
-
     React.useEffect(() => {
         getLatestAdverts().then(adverts => {setAdverts(adverts)});
     }, []);
@@ -21,10 +20,10 @@ const AdvertsPage = ({ className, history, ...props }) => {
     return <div className={classnames("advertsPage", className )}>
         <Layout title={process.env.REACT_APP_TITLE} {...props}>
             <FilterAdverts 
-            prices={adverts.map(({ price }) => price)}
-            onFilter={setFilters}/>
+            adverts={adverts}
+            filterAdverts={setFilters}/>
             <div className={className}>
-                {adverts.length ? <AdvertsList history={history} adverts={adverts}/> : <EmptyList/>}
+                {adverts.length ? <AdvertsList history={history} adverts={filters ? filters : adverts }/> : <EmptyList/>}
             </div>
         </Layout>
     </div>;

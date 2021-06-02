@@ -28,3 +28,8 @@
 .newAdvert-submit {
     margin: 0.5rem;
 }
+
+.newAdvert-submit:disabled {
+    opacity: 50%;
+    cursor: default;
+}

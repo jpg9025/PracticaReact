@@ -10,17 +10,18 @@ const TagsSelector = ({ value, onChange, ...props }) => {
     }, []);
 
     const handleChange = event => {
-        const { name, checked, value: optionValue } = event.target;
-        console.log('trakata')
-        onChange({
-          target: {
-            name,
-            value: checked
-              ? [...value, optionValue]
-              : value.filter(v => v !== optionValue),
-          },
-        });
+      const { name, checked, value: optionValue } = event.target;
+      onChange({
+        target: {
+          name,
+          value: checked
+            ? [...value, optionValue]
+            : value.filter(v => v !== optionValue),
+        },
+      });
     };
+
+    //console.log(onChange);
 
     const options = tags;
     
@@ -45,7 +46,7 @@ const TagsSelector = ({ value, onChange, ...props }) => {
 TagsSelector.propTypes = {
   option: PTypes.bool,
   handleChange: PTypes.func.isRequired,
-  value: PTypes.string,
+  value: PTypes.arrayOf(PTypes.string),
 }
 
 export default TagsSelector;

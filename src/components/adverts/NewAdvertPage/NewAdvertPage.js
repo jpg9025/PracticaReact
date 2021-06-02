@@ -6,7 +6,7 @@ import PTypes from 'prop-types';
 import {createAdvert } from '../../../API/adverts.js';
 
 
-const NewAdvertPage = ({history, className, onSubmit, ...props}) => {
+const NewAdvertPage = ({history, className, onSubmit}) => {
 
     const [error, setError] = React.useState(null);
 

@@ -50,14 +50,12 @@ const LoginPage = ({ onLogin, history, location }) => {
     );
 }
 
-const ConnectedLoginPage = (history, location, props) => {
+const ConnectedLoginPage = (props) => {
     return <AuthContextConsumer>
         {(value)=> {return <LoginPage 
         isLogged={value.isLogged} 
         onLogout={value.onLogout} 
         onLogin={value.onLogin} 
-        history={history} 
-        location={location} 
         {...props} />}} 
     </AuthContextConsumer>;
 };
@@ -68,4 +66,4 @@ LoginPage.propTypes = {
     location: PTypes.object.isRequired
 };
 
-export default LoginPage;
+export default ConnectedLoginPage;
