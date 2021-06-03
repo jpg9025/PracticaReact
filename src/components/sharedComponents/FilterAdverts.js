@@ -17,7 +17,7 @@ const FilterAdverts = (props) => {
     const {tags, sale} = filterAdverts;
 
     const filteringAdverts = (value) => {
-        console.log(value[0]);
+        //console.log(value[0]);
         
         // Filter by name
         if(typeof(value)==='string') {

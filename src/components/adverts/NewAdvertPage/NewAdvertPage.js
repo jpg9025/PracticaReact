@@ -14,7 +14,6 @@ const NewAdvertPage = ({history, className, onSubmit}) => {
         try {
             const advert = await createAdvert(newAdvert);
             history.push(`/adverts/${advert.id}`);
-            console.log(advert);
         } catch (error) {
             setError(true);
             console.log(error.statusCode, error.message);

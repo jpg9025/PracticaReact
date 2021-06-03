@@ -42,3 +42,9 @@
     align-items: center;
     font-size: 1.5rem;
 }
+
+.Delete-button {
+    position: absolute;
+    top: 12rem;
+    left: 42rem;
+}

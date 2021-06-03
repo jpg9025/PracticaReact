@@ -1,8 +1,5 @@
 import React from 'react';
 import PTypes from 'prop-types';
-import { deleteAdvert } from '../../../API/adverts.js';
-
-import Button from '../../sharedComponents/Button.js';
 
 import './Advert.css';
 
@@ -11,11 +8,6 @@ const Advert = ({ id, name, sale, price, tags, photo, history, /*onClick,*/ ...p
         history.push(`/adverts/${id}`);
     };
 
-
-    const handleDelete = async () => {
-       await deleteAdvert(`${id}`);
-       window.location.reload(false);
-    };
 
     return (
         <div className="advert-wrapper">
@@ -32,12 +24,6 @@ const Advert = ({ id, name, sale, price, tags, photo, history, /*onClick,*/ ...p
                     <span className="advert-tags">{tags}</span>
                 </div>
             </article>
-            <Button
-            className="Delete-button"
-            onClick={handleDelete}
-            >
-                DeleteAdvert
-            </Button>
         </div>
         
         

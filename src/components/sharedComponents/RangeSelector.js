@@ -9,7 +9,7 @@ function SelectRange({ name, onChange, min, max, ...props }) {
   const handleChange = ([minValue, maxValue]) => {
     onChange({ target: { name, value: [ minValue || min, maxValue || max ] } });
   };
-  return <Range className="rangeSelector" min={min} max={max} onChange={handleChange} {...props} />;
+  return <Range className="rangeSelector" min={min} max={max} defaultValue={[min,max]} onChange={handleChange} {...props} />;
 }
 
 SelectRange.propTypes = {

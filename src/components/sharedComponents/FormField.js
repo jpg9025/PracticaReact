@@ -13,7 +13,7 @@ function FormField({ className, autofocus, label, ...props }) {
         if (autofocus) {
             inputRef.current.focus();
         };   
-    } ,[]);
+    } ,[autofocus]);
 
     return (
         <div className={classnames('formField', className )}>

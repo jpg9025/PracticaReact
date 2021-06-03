@@ -8,7 +8,7 @@ const AdvertsList = ({ adverts, history }) => {
 
     React.useEffect(() => {
         history.push('/');
-    }, [adverts.length]);
+    }, [adverts.length, history]);
 
     const handleClick = advertId => {
         history.push(`/advert/${advertId}`);

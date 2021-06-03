@@ -23,11 +23,6 @@
     padding: 0.2rem;
 }
 
-.Delete-button {
-    position: relative;
-    left: 40%;
-}
-
 .advert-photo {
     display: flex;
     justify-content: space-around;
