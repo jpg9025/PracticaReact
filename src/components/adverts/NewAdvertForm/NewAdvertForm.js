@@ -25,7 +25,7 @@ const NewAdvertForm = ({onSubmit}) => {
 
     const [formValues, setFormValue] = React.useState(initialFormValue);
 
-    const { name, price, sale, tags, photo} = formValues;
+    const { name, price, sale, tags} = formValues;
 
     const updateFormValue = (name, value) => {
         setFormValue(currentFormValue => ({

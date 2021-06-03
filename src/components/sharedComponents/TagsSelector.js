@@ -21,8 +21,6 @@ const TagsSelector = ({ value, onChange, ...props }) => {
       });
     };
 
-    //console.log(onChange);
-
     const options = tags;
     
     return (

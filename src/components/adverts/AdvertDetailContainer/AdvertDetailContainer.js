@@ -4,15 +4,12 @@ import { advertType } from '../Advert/Advert.js';
 
 import './AdvertDetailContainer.css';
 
-import cosa from '../../../images/Cosa.jpg';
-
-
-//<img src={require(`../../../images/${advert.name}.jpg`)} alt="bici"/>
-//<img className="photo" src={`../../../images/${advert.name}.jpg`} alt="item" /> 
+import notfound from '../../../images/nopicture.png';
 
 const AdvertDetailContainer =({ advert }) => {
 
-    console.log(advert);
+    console.log(advert)
+    console.log(advert.photo);
     return (
         <div className="AdvertDetailContainer">
             <div className="AdvertDetail-header">
@@ -21,7 +18,7 @@ const AdvertDetailContainer =({ advert }) => {
                 <span className="AdvertDetail-onsale">On sale: {advert.sale ? 'yes' : 'no'}</span>
             </div>
             <div className="AdvertDetail-photo">
-                <img src={advert.photo ? advert.photo : cosa } alt="item" /> 
+                <img className="AdvertDetail-picture" src={advert.photo ? `${process.env.REACT_APP_API_BASE_URL}${advert.photo}` : notfound } style={{width:'500px', height:'300px'}}alt="item" /> 
             </div>
             <div className="AdvertDetail-footer">
                 <span className="AdvertDetail-createdAt">Created at: {advert.createdAt}</span>

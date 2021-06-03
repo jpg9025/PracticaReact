@@ -3,11 +3,13 @@ import PTypes from 'prop-types';
 import { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
+import './RangeSelector.css';
+
 function SelectRange({ name, onChange, min, max, ...props }) {
   const handleChange = ([minValue, maxValue]) => {
     onChange({ target: { name, value: [ minValue || min, maxValue || max ] } });
   };
-  return <Range min={min} max={max} onChange={handleChange} {...props} />;
+  return <Range className="rangeSelector" min={min} max={max} onChange={handleChange} {...props} />;
 }
 
 SelectRange.propTypes = {

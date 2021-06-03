@@ -25,7 +25,7 @@ const Advert = ({ id, name, sale, price, tags, photo, history, /*onClick,*/ ...p
                     <span className="advert-onsale">On sale: {sale ? 'yes' : 'no'}</span>
                 </div>
                 <div className="adver-body">
-                    <span className="advert-photo">{photo}</span>
+                    <span className="advert-photo"><img src={`${process.env.REACT_APP_API_BASE_URL}${photo}`} alt={`${name}`} style={{width:"250px", height:"150px"}} /></span>
                 </div>
                 <div className="advert-footer">
                     <span className="advert-price">{price}€</span>
