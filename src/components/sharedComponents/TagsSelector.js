@@ -14,9 +14,7 @@ const TagsSelector = ({ value, onChange, ...props }) => {
       onChange({
         target: {
           name,
-          value: checked
-            ? [...value, optionValue]
-            : value.filter(v => v !== optionValue),
+          value: checked ? [...value, optionValue] : value.filter(v => v !== optionValue),
         },
       });
     };
@@ -43,7 +41,7 @@ const TagsSelector = ({ value, onChange, ...props }) => {
 
 TagsSelector.propTypes = {
   option: PTypes.bool,
-  handleChange: PTypes.func.isRequired,
+  onChange: PTypes.func.isRequired,
   value: PTypes.arrayOf(PTypes.string),
 }
 

@@ -10,7 +10,7 @@ function Layout({ children, title, ...props }) {
             <Header className="layout-header" {...props} ></Header>
             <main className="layout-main">
                 <h2 className="layout-title">{title}</h2>
-                <section className="layout-content">{children}</section>
+                <div className="layout-content">{children}</div>
             </main>
             <footer className="layout-footer">{process.env.REACT_APP_TITLE_LONG}</footer>
         </div>

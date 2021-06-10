@@ -1,11 +1,11 @@
 .AdvertDetailContainer {
-    margin: 5rem;
+    margin: 3rem;
     padding: 2rem;
     background-color: #AFB42B;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 85vw;
+    width: 84%;
 }
 
 .AdvertDetail-header {
