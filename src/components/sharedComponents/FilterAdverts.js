@@ -42,7 +42,7 @@ const FilterAdverts = (props) => {
         // Filter by tags
         } else if (typeof(value[0] === 'string')){
             filterAdverts(adverts.filter(data => {
-                return value.tags.filter(tags => data.tags.includes(tags) ? data : <EmptyList /> )
+                return value.tags.filter(tags => data.tags.includes(tags) ? (data/*, console.log(data)*/) : <EmptyList /> )
                 //return data.tags.filter(tags => value.tags.includes(tags) ? data : <EmptyList/>);
             }))
         }
