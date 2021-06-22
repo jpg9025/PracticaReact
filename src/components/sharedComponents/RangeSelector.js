@@ -5,11 +5,11 @@ import 'rc-slider/assets/index.css';
 
 import './RangeSelector.css';
 
-function SelectRange({ name, onChange, min, max, ...props }) {
+function SelectRange({ name, onChange, min, max }) {
   const handleChange = ([minValue, maxValue]) => {
     onChange({ target: { name, value: [ minValue || min, maxValue || max ] } });
   };
-  return <Range className="rangeSelector" min={min} max={max} defaultValue={[min,max]} onChange={handleChange} {...props} />;
+  return <Range className="rangeSelector" min={min} max={max} defaultValue={[min,max]} onChange={handleChange} />;
 }
 
 SelectRange.propTypes = {
