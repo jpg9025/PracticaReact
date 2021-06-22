@@ -8,7 +8,7 @@ import {createAdvert } from '../../../API/adverts.js';
 
 const NewAdvertPage = ({history, className, onSubmit}) => {
 
-    const [error, setError] = React.useState(null);
+    const [ error, setError ] = React.useState(null);
 
     const handleSubmit = async (newAdvert) => {
         try {

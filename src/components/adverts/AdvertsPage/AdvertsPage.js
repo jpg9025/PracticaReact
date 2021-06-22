@@ -12,7 +12,7 @@ const AdvertsPage = ({ className, history, ...props }) => {
 
     const [ adverts, setAdverts ] = React.useState([]);
 
-    const [filters, setFilters] = React.useState(initialFilters.name);
+    const [filters, setFilters] = React.useState(initialFilters);
 
     React.useEffect(() => {
         getLatestAdverts().then(adverts => {setAdverts(adverts)});
@@ -22,13 +22,15 @@ const AdvertsPage = ({ className, history, ...props }) => {
         setFilters(filters);
     };
 
+    // item.sale && (filters.sale === 'sell')) || (!item.sale && (filters.sale === 'buy') || item)
 
-    //filter => ({ tags }) => !filter.length || filter.every(tag => tags.includes(tag));
-    const filteredAdverts =  adverts.filter((item) => !filters.name || item.name === filters.name)
+    const filteredAdverts =  adverts.filter((item) => !filters.name || item.name.includes(filters.name))
     .filter((item) => !filters.price || (item.price >= Math.min(...filters.price) && item.price <= Math.max(...filters.price)))
-    .filter((item) => !filters.tags || (item.tags.every(tag => filters.tags.includes(tag))));
+    .filter((item) => !filters.tags || (item.tags.every(tag => filters.tags.includes(tag))))
+    .filter((item) => (item.sale && filters.sale === 'sell') ? item : ((!item.sale && (filters.sale === 'buy') ? item : ((filters.sale === 'all') ? item : undefined))));
 
     console.log(filteredAdverts,'filteredAdverts')
+    console.log(initialFilters, 'initialFilters')
     console.log(filters,'filters')
     console.log(adverts,'adverts')
 
