@@ -42,8 +42,6 @@ function App({ isInitiallyLogged }) {
 
           <Route  path="/login">
             {({history, location}) => <LoginPage history={history} location={location} /*onLogin={handleLogin}*/ /> }
-            {/*  using history and redirectinf to home is better, more programatically than using the conditioning
-            ({history}) => !isLogged ? <LoginPage onLogin={handleLogin} history={history}/> : <Redirect to='/'/>*/}
           </Route>
 
           <PrivateRoute  exact path="/" /*isLogged={isLogged}*/>

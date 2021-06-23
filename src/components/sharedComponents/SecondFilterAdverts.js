@@ -26,8 +26,6 @@ const SecondFilterAdverts = ({onFilter, adverts}) => {
             setPrice(event.target.value)
         } else if (event.target.name === 'sale') {
             setSale(event.target.value)
-            console.log(event.target.value)
-            console.log('todo el mundo quiere trakatá')
         };
     };
 
@@ -41,11 +39,6 @@ const SecondFilterAdverts = ({onFilter, adverts}) => {
         onFilter({ name, price, tags, sale });
     };
 
-    /*const handleReset = (event) => {
-        event.preventDefault();
-        onFilter(initialFilters);
-    };*/
-
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -54,7 +47,6 @@ const SecondFilterAdverts = ({onFilter, adverts}) => {
                 <TagsSelector className="tagsSellector" multiple name="tags" value={tags} onChange={handleChangeTags}/>
                 <RadioGroup value={sale} name="sale" options={Object.values(saleFilter)} onChange={handleChange}/>
                 <Button type="submit" value="filter">Filter</Button>
-                {/*<Button type="reset" value="reset" onClick={handleReset}>Reset</Button>*/}
             </form>
         </div>
     ); 

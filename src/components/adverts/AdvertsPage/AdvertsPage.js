@@ -7,6 +7,7 @@ import Layout from '../../layout/Layout/Layout.js';
 import AdvertsList from '../AdvertsList/AdvertsList.js';
 import SecondFilterAdverts from '../../sharedComponents/SecondFilterAdverts.js';
 import initialFilters from '../../sharedComponents/filters.js';
+//import { filterByName, filterByPrice, filterBySale, filterByTags } from '../../sharedComponents/filters.js';
 
 const AdvertsPage = ({ className, history, ...props }) => {
 
@@ -22,24 +23,17 @@ const AdvertsPage = ({ className, history, ...props }) => {
         setFilters(filters);
     };
 
-    // item.sale && (filters.sale === 'sell')) || (!item.sale && (filters.sale === 'buy') || item)
+    //const filteredAdverts = filterByTags(filterByPrice(filterByName(filterBySale(adverts,filters))));
+    //He intentado dividirlo en funciones individuales, pero me ha comenzado a dar problemas con AdvertsList. etc.
 
     const filteredAdverts =  adverts.filter((item) => !filters.name || item.name.includes(filters.name))
     .filter((item) => !filters.price || (item.price >= Math.min(...filters.price) && item.price <= Math.max(...filters.price)))
     .filter((item) => !filters.tags || (item.tags.every(tag => filters.tags.includes(tag))))
     .filter((item) => (item.sale && filters.sale === 'sell') ? item : ((!item.sale && (filters.sale === 'buy') ? item : ((filters.sale === 'all') ? item : undefined))));
 
-    console.log(filteredAdverts,'filteredAdverts')
-    console.log(initialFilters, 'initialFilters')
-    console.log(filters,'filters')
-    console.log(adverts,'adverts')
-
     return <div className={classnames("advertsPage", className )}>
         <Layout title={process.env.REACT_APP_TITLE} {...props}>
             <SecondFilterAdverts adverts={adverts} onFilter={handleFilter} {...props}/>
-            {/*<div className={className}>
-                {adverts.length ? <AdvertsList history={history} adverts={filters ? (adverts.filter((item) => !filters.name || item.includes(filters.name))) : adverts}/> : <EmptyList/>}
-            </div>*/}
             <AdvertsList adverts={filteredAdverts} history={history}/>
         </Layout>
     </div>;
